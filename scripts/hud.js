@@ -125,18 +125,18 @@ export class Hud {
       'rightleg': 0
     }
     // collect worn armor
-    for(let armor in actor.itemTypes.armor) {
+    for(let [number, armor] in actor.itemTypes.armor) {
       if (armor.type == 'armor') {
-        infosData.armor.head += armor.protection.head
-        infosData.armor.total += armor.protection.head
-        infosData.armor.leftarm += armor.protection.leftarm
-        infosData.armor.total += armor.protection.leftarm
-        infosData.armor.leftleg += armor.protection.leftleg
-        infosData.armor.total += armor.protection.leftleg
-        infosData.armor.rightarm += armor.protection.rightarm
-        infosData.armor.total += armor.protection.rightarm
-        infosData.armor.rightleg += armor.protection.rightleg
-        infosData.armor.total += armor.protection.rightleg
+        infosData.armor.head += armor.system.protection.head
+        infosData.armor.total += armor.system.protection.head
+        infosData.armor.leftarm += armor.system.protection.leftarm
+        infosData.armor.total += armor.system.protection.leftarm
+        infosData.armor.leftleg += armor.system.protection.leftleg
+        infosData.armor.total += armor.system.protection.leftleg
+        infosData.armor.rightarm += armor.system.protection.rightarm
+        infosData.armor.total += armor.system.protection.rightarm
+        infosData.armor.rightleg += armor.system.protection.rightleg
+        infosData.armor.total += armor.system.protection.rightleg
       }
     }
 
