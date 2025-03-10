@@ -3,7 +3,6 @@
   "title": "Gamemaster Token Tools for DSA5",
   "description": "A Gamemaster's Token Tools for DSA5, showing infos, actions and call-for-actions on a token HUD.",
   "library": false,
-  "manifestPlusVersion": "1.2.2",
   "authors": [
     {
       "name": "BlackStripedOne",
