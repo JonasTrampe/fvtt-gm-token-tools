@@ -9,7 +9,7 @@ export class Hud {
 
   /**
    * Internal function to add all token actions to the token hud.
-   * 
+   *
    * @param {Application} app - the application of the calling action
    * @param {Html} html - the html dom object
    * @param {GameData} data - the foundry game data instance
@@ -61,7 +61,7 @@ export class Hud {
       })
     }
 
-    // collect and sort attributes  
+    // collect and sort attributes
     let attributes = ['mu', 'kl', 'in', 'ch', 'ff', 'ge', 'ko', 'kk']
     // TODO sorting?
     for (let attrib of attributes) {
@@ -125,18 +125,28 @@ export class Hud {
       'rightleg': 0
     }
     // collect worn armor
-    for(let armor in actor.itemTypes.armor) {
+    for(const armor of Object.values(actor.itemTypes.armor)) {
       if (armor.type == 'armor') {
-        infosData.armor.head += armor.protection.head
-        infosData.armor.total += armor.protection.head
-        infosData.armor.leftarm += armor.protection.leftarm
-        infosData.armor.total += armor.protection.leftarm
-        infosData.armor.leftleg += armor.protection.leftleg
-        infosData.armor.total += armor.protection.leftleg
-        infosData.armor.rightarm += armor.protection.rightarm
-        infosData.armor.total += armor.protection.rightarm
-        infosData.armor.rightleg += armor.protection.rightleg
-        infosData.armor.total += armor.protection.rightleg
+        if (armor.system.protection.value > 0){
+          infosData.armor.head += armor.system.protection.value
+          infosData.armor.leftarm += armor.system.protection.value
+          infosData.armor.leftleg += armor.system.protection.value
+          infosData.armor.rightarm += armor.system.protection.value
+          infosData.armor.rightleg += armor.system.protection.value
+          infosData.armor.total += armor.system.protection.value
+        }
+        else {
+          infosData.armor.head += armor.system.protection.head
+          infosData.armor.total += armor.system.protection.head
+          infosData.armor.leftarm += armor.system.protection.leftarm
+          infosData.armor.total += armor.system.protection.leftarm
+          infosData.armor.leftleg += armor.system.protection.leftleg
+          infosData.armor.total += armor.system.protection.leftleg
+          infosData.armor.rightarm += armor.system.protection.rightarm
+          infosData.armor.total += armor.system.protection.rightarm
+          infosData.armor.rightleg += armor.system.protection.rightleg
+          infosData.armor.total += armor.system.protection.rightleg
+        }
       }
     }
 
